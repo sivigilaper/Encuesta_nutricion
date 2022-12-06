@@ -14,5 +14,11 @@ library(janitor)
 #################### inicio de base com weights para analisis de encuesta
 weights <- readRDS("Bases/weights.rds")
 
+weights <- weights %>% 
+  inner_join(y, by = c("n_manz_muestreada"=""))
+
+
+
+saveRDS(weights,"Bases/weights.rds")
 
 
